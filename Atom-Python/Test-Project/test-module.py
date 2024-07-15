@@ -17,4 +17,8 @@ class Employee:
         return '{} {}'.format(self.first, self.last)
 
 
-emp_1 = Employee('John', 'Smith')
+emp_1 = Employee('John', 'Smith')\
+@property
+def email(self)
+    return '({format (self.first, self.last))
+    
