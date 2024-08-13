@@ -44,5 +44,27 @@ for f in os.listdir():
 
     os.rename(fn, new_name)
 
+    DEFINE
+    MEASURE 'Internet Sales'[Internet Total Sales] =
+        SUM ( 'Internet Sales'[Sales Amount] )
+
+EVALUATE
+SUMMARIZECOLUMNS (
+    'Date'[Calendar Year],
+    TREATAS (
+        {
+            2013,
+            2014
+        },
+        'Date'[Calendar Year]
+    ),
+    "Total Sales", [Internet Total Sales],
+    "Combined Years Total Sales",
+        CALCULATE (
+            [Internet Total Sales],
+            ALLSELECTED ( 'Date'[Calendar Year] )
+        )
+)
+ORDER BY [Calendar Year]
 
 # print(len(os.listdir()))
